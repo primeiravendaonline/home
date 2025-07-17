@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>PVO</title>
+    <link rel="icon" type="image/png" href="ico.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="protecao.css" />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Montserrat", sans-serif;
+        background-color: #000;
+        color: #fff;
+      }
+      header {
+        position: relative;
+        padding: 1rem;
+        background-color: #000;
+        z-index: 2;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      header img.logo {
+        height: 4rem;
+        width: auto;
+      }
+      header button {
+        background: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+      }
+      .menu-icon {
+        width: 100%;
+        height: auto;
+        max-height: 6rem;
+        object-fit: contain;
+        display: block;
+      }
+      .hero-img {
+        width: 100%;
+        height: auto;
+        max-height: 600px;
+        object-fit: cover;
+        display: block;
+      }
+      main {
+        padding: 1.25rem;
+      }
+      h2 {
+        margin-top: -5rem;
+        font-weight: 800;
+        font-size: 1.875rem;
+        line-height: 1.375;
+        max-width: 28rem;
+        padding-left: 0.75rem;
+        border-left: 4px solid #02D800;
+        position: relative;
+        z-index: 1;
+      }
+      p.description {
+        margin-top: 1rem;
+        max-width: 28rem;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        font-size: 0.875rem;
+        line-height: 1.5;
+        color: #fff;
+        font-weight: 400;
+      }
+      a.cta {
+        margin-top: 1.5rem;
+        display: block;
+        max-width: 28rem;
+        margin-left: auto;
+        margin-right: auto;
+        background-image: linear-gradient(90deg, #02D800 0%, #02D800 100%);
+        color: #000;
+        text-align: center;
+        font-size: 0.75rem;
+        font-weight: 800;
+        padding: 0.5rem;
+        border-radius: 9999px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      a.cta:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 255, 170, 0.2);
+      }
+      section.text-center {
+        margin-top: 3rem;
+        max-width: 28rem;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+      }
+      section.text-center p {
+        font-size: 0.75rem;
+        font-weight: 800;
+        line-height: 1.25;
+        margin-bottom: 100px;
+      }
+      .alerta-urgente {
+        margin-top: 10rem;
+        max-width: 28rem;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #2a0000;
+        color: #ffffff;
+        padding: 1rem 1.5rem;
+        border-radius: 10px;
+        font-size: 1em;
+        font-weight: 800;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        text-align: center;
+        box-shadow: 0 0 12px rgba(255, 0, 0, 0.3);
+      }
+      .countdown {
+        font-size: 1.2em;
+        color: #ff4d4d;
+        margin-left: 10px;
+      }
+      .full-width-img {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin: 0;
+      padding: 0;
+      border: none;
+      }
+
+      section.features {
+      padding: 0;
+      margin: 0;
+}
+
+      .features-scroll {
+        display: flex;
+        gap: 1rem;
+        max-width: 100%;
+        overflow-x: auto; /* ← adicionado */
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+        padding-bottom: 1rem;
+      }
+
+      .testimonials-grid {
+        display: flex;
+        gap: 1rem;
+        max-width: 100%;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        overflow-x: auto; /* ← garantido aqui */
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+      }
+      section.features h3 {
+        font-size: 1.875rem;
+        font-weight: 800;
+        line-height: 1.375;
+        border-left: 4px solid #02D800;
+        padding-left: 0.75rem;
+        margin-bottom: 2rem;
+        max-width: 28rem;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .features-scroll {
+        display: flex;
+        gap: 1rem;
+        max-width: 100%;
+      }
+      .card {
+        background-color: #1f1f1f;
+        border-radius: 1.5rem;
+        padding: 1.25rem 1.5rem;
+        margin: 0;
+        min-width: 16rem;
+        max-width: 16rem;
+        text-align: center;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+        flex-shrink: 0;
+        transition: all 0.3s ease-in-out;
+      }
+      .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 255, 170, 0.2);
+      }
+      .card h4 {
+        font-size: 1.125rem;
+        font-weight: 800;
+        margin-bottom: 0.75rem;
+        color: #ffffff;
+      }
+      .card p {
+        font-size: 0.8125rem;
+        line-height: 1.4;
+        color: #cccccc;
+        font-weight: 400;
+      }
+      .testimonials {
+        margin-top: 3rem;
+        max-width: 100%;
+        padding: 0 1rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+      }
+      .testimonials .section-small-title {
+        font-size: 1rem;
+        font-weight: 800;
+        color: #02D800;
+        margin-top: 0;
+        margin-bottom: 1rem;
+        border-left: 4px solid #02D800;
+        padding-left: 0.75rem;
+        max-width: 28rem;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .testimonials .section-subtitle {
+        font-size: 2rem;
+        font-weight: 800;
+        color: #ffffff;
+        margin-bottom: 2rem;
+        max-width: 28rem;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .testimonials-grid {
+        display: flex;
+        gap: 1rem;
+        max-width: 100%;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+      }
+      .testimonial-card {
+        background-color: #1f1f1f;
+        border-radius: 1rem;
+        padding: 1rem 1.25rem;
+        width: 14rem;
+        flex-shrink: 0;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        transition: all 0.3s ease-in-out;
+      }
+      .testimonial-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+      }
+      .testimonial-header {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .testimonial-header img {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 9999px;
+        object-fit: cover;
+      }
+      .testimonial-name {
+        font-weight: 800;
+        font-size: 0.8125rem;
+      }
+      .testimonial-text {
+        font-size: 0.8125rem;
+        color: #ccc;
+        line-height: 1.4;
+      }
+      .autor {
+        background-size: cover;
+        background-position: center;
+        padding: 4rem 1.25rem;
+        position: relative;
+      }
+      .autor::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.85),
+          rgba(0, 0, 0, 0.85)
+        );
+        z-index: 0;
+      }
+      .autor-wrapper {
+        position: relative;
+        max-width: 28rem;
+        margin: 0 auto;
+        z-index: 1;
+      }
+      .autor h3 {
+        font-size: 1rem;
+        font-weight: 800;
+        color: #02D800;
+        margin-top: 0;
+        margin-bottom: 5rem;
+        border-left: 4px solid #02D800;
+        padding-left: 0.75rem;
+      }
+      .autor-nome {
+        font-size: 2.5rem;
+        font-weight: 800;
+        background: linear-gradient(90deg, #FFFFFF, #ffffff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 1rem;
+        line-height: 1.1;
+      }
+      .autor p {
+        color: #ffffff;
+        font-size: 0.875rem;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+        font-weight: 400;
+      }
+      footer {
+        margin-top: 3rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        font-size: 0.75rem;
+      }
+      footer img {
+        display: block;
+        margin: 0 auto 0.75rem;
+        width: 6rem;
+      }
+      footer a {
+        color: #02D800;
+        text-decoration: underline;
+      }
+      .sales-popup {
+        position: fixed;
+        bottom: 2rem;
+        left: 1rem;
+        background-color: #1f1f1f;
+        color: #fff;
+        padding: 1rem 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        font-size: 0.875rem;
+        font-weight: 600;
+        max-width: 300px;
+        z-index: 9999;
+        opacity: 0;
+        transform: translateY(20px);
+        pointer-events: none;
+        transition: all 0.5s ease;
+      }
+      .sales-popup.show {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img
+        src="logo.png"
+        alt="Logo PVO"
+        class="logo"
+      />
+      <button aria-label="Menu" style="position: absolute; top: 0; right: 0;">
+        <img
+          src="menu-icon.png"
+          alt="Ícone do menu"
+          class="menu-icon"
+        />
+      </button>
+    </header>
+    <img
+      src="hero.png"
+      alt="Homem com boné"
+      class="hero-img"
+    />
+    <main>
+      <section>
+        <h2>Segredos que me fazem faturar 5 dígitos mensais</h2>
+        <p class="description">
+         Conosco você aprenderá a fazer sua primeira venda em 24h, independente do produto ou serviço que esteja oferecendo.
+        </p>
+        <a
+          href="https://pay.kirvano.com/39dbfc8d-929b-4e1d-942b-5345f61b0850"
+          class="cta"
+          target="_blank"
+          rel="noopener noreferrer"
+          >QUERO MEU ACESSO</a
+        >
+      </section>
+      <section class="text-center">
+        <p>Está pronto para transformar suas redes sociais em uma máquina de lucrar?</p>
+      </section>
+
+      <section class="features">
+  <img src="como-funciona.png" alt="Como funciona" class="full-width-img" />
+          <a
+          href="https://pay.kirvano.com/39dbfc8d-929b-4e1d-942b-5345f61b0850"
+          class="cta"
+          target="_blank"
+          rel="noopener noreferrer"
+          >QUERO MEU ACESSO</a
+        >
+</section>
+      <section class="testimonials">
+        <h3
+          style="
+            font-size: 1rem;
+            font-weight: 800;
+            color: #02D800;
+            margin-top: 0;
+            margin-bottom: 5rem;
+            border-left: 4px solid #02D800;
+            padding-left: 0.75rem;
+          "
+        >
+          Feedbacks
+        </h3>
+        <h2
+          style="
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+          "
+        >
+          Depoimentos dos alunos
+        </h2>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-header">
+              <img src="bia.png" alt="Perfil Ana" />
+              <span class="testimonial-name">Ana Clara</span>
+            </div>
+            <p class="testimonial-text">
+              Gente, sério, o PVO é tipo um turbo pra quem quer começar a
+              ganhar dinheiro de verdade na internet. Eu tava meio perdida, mas com
+              as dicas dele foi moleza. Se eu consegui, tu também consegue, vale a
+              pena demais!
+            </p>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-header">
+              <img src="wes.png" alt="Perfil Lucas" />
+              <span class="testimonial-name">Lucas Moreira</span>
+            </div>
+            <p class="testimonial-text">
+              Mano, antes do PVO eu tava no escuro, sem saber direito como
+              ganhar grana com minhas redes. Depois que comecei a aplicar o que o
+              Vinicius ensina, a coisa virou. Tá tudo mais claro, e o melhor: os
+              resultados apareceram rápido. Vale demais pra quem quer fazer dinheiro
+              de verdade online.
+            </p>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-header">
+              <img src="rafa.png" alt="Perfil João" />
+              <span class="testimonial-name">João Vitor</span>
+            </div>
+            <p class="testimonial-text">
+              Cara, não perde tempo tentando adivinhar o que funciona, vai direto no
+             PVO. O cara ensina na moral, sem enrolação, e o resultado
+              aparece rápido. É aquele empurrão que a gente precisa pra sair do zero
+              e começar a lucrar de verdade. Tô usando e recomendo demais!"
+            </p>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-header">
+              <img src="bruno.png" alt="Perfil João" />
+              <span class="testimonial-name">Bruno Santos</span>
+            </div>
+            <p class="testimonial-text">
+              Eu não botava muita fé nessas paradas de ganhar dinheiro online... mas
+              o PVO me provou o contrário. Comecei aplicando o método meio
+              na dúvida, mas em dois meses já tava tirando mais de R$2.000 por mês
+              só com perfil dark, sem precisar aparecer, sem dor de cabeça. É tudo
+              explicado no detalhe. Se tu focar, tu ganha. Simples assim.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="autor">
+        <div class="autor-wrapper">
+          <h3>A mente por trás de tudo</h3>
+          <h2 class="autor-nome">Vinicius Farhat</h2>
+          <p>
+            Meu nome é Vinícius Farhat, eu sou entusiasta em redes sociais e
+            criador do método. Descobri estratégias que me fizeram crescer
+            financeiramente em 2022 e de lá pra cá venho aumentando ainda mais meu
+            patrimônio e meu conhecimento.
+          </p>
+          <p>
+            Clique abaixo e receba acesso vitalício aos melhores conteúdos para
+            você replicar o que eu consegui fazer.
+          </p>
+          <a
+            href="https://pay.kirvano.com/39dbfc8d-929b-4e1d-942b-5345f61b0850"
+            class="cta"
+            target="_blank"
+            rel="noopener noreferrer"
+            >QUERO MEU ACESSO</a
+          >
+          <div style="margin-top: 3rem;">
+            <h3
+              style="
+                font-size: 1rem;
+                font-weight: 800;
+                color: #02D800;
+                margin-top: 0;
+                margin-bottom: 5rem;
+                border-left: 4px solid #02D800;
+                padding-left: 0.75rem;
+              "
+            >
+              Suporte
+            </h3>
+            <h2
+              style="
+                font-size: 2rem;
+                font-weight: 800;
+                margin-bottom: 1rem;
+              "
+            >
+              Precisa de ajuda?
+            </h2>
+            <p style="font-size: 0.875rem; font-weight: 400; margin-bottom: 2rem;">
+              Entre em contato com nosso time no WhatsApp
+            </p>
+            <a
+              href="https://wa.me/5591991041083"
+              class="cta"
+              target="_blank"
+              rel="noopener noreferrer"
+              style="
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem;
+              "
+            >
+              <img
+                src="wpp.png"
+                alt="WhatsApp"
+                style="height: 1rem; width: 1rem"
+              />
+              ENTRAR EM CONTATO
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <img src="logo.png" alt="Logo PVO rodapé" />
+      <p>©2025 PVO. Todos os direitos reservados.</p>
+      <a href="mailto:codigoonline@proton.me">Contate-nos</a>
+    </footer>
+
+    <!-- Pop-up de venda dinâmico -->
+    <div class="sales-popup" id="salesPopup"></div>
+
+    <!-- Scripts -->
+    <script src="protecao.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
